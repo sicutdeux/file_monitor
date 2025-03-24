@@ -1,0 +1,5 @@
+file-monitor (0.1.0) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Your Name <your.email@example.com>  $(date -R)

@@ -1,0 +1,8 @@
+include README.md
+include LICENSE
+include requirements.txt
+include bin/file-monitor
+include debian/file_monitor.conf
+recursive-include debian *
+recursive-include file_monitor *
+include build_deb.sh

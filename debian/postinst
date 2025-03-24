@@ -1,0 +1,48 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    configure)
+        # Create config directory if it doesn't exist
+        mkdir -p /etc/file_monitor
+
+        # Check if configuration file already exists
+        if [ ! -f /etc/file_monitor/file_monitor.conf ]; then
+            # Configuration file doesn't exist, copy the default one
+            echo "Installing default configuration file..."
+            cp /usr/share/file_monitor/file_monitor.conf.default /etc/file_monitor/file_monitor.conf
+        else
+            echo "Existing configuration file found, keeping it intact."
+        fi
+
+        # Set appropriate permissions for config file
+        if [ -f /etc/file_monitor/file_monitor.conf ]; then
+            chmod 640 /etc/file_monitor/file_monitor.conf
+            chown root:root /etc/file_monitor/file_monitor.conf
+        fi
+        
+        # Install dependencies
+        echo "Installing Python dependencies..."
+        if ! /usr/lib/file_monitor/install_deps.sh; then
+            echo ""
+            echo "=================================================================="
+            echo "NOTE: Python dependencies were not installed automatically."
+            echo ""
+            echo "This is most likely because another package manager is running or"
+            echo "waiting for user input (e.g., a prompt to restart services)."
+            echo ""
+            echo "After completing any pending package operations, please run:"
+            echo "sudo /usr/lib/file_monitor/install_deps.sh"
+            echo "=================================================================="
+            echo ""
+        fi
+        ;;
+esac
+
+# Enable and start the service, but don't fail if dependencies aren't installed yet
+systemctl enable file_monitor.service || true
+systemctl start file_monitor.service || echo "Note: Service not started. Please install dependencies first."
+
+#DEBHELPER#
+
+exit 0

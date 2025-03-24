@@ -1,0 +1,12 @@
+[Unit]
+Description=File Monitor Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /usr/lib/file_monitor/file_monitor.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

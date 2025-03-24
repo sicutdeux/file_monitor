@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+# Stop and disable the service
+systemctl stop file_monitor.service || true
+systemctl disable file_monitor.service || true
+
+exit 0

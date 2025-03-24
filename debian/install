@@ -1,0 +1,3 @@
+# The configuration file will be handled in the postinst script instead
+# to prevent overwriting existing configurations
+debian/file_monitor.conf etc/file_monitor/

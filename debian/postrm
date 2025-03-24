@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    purge)
+        # Remove configuration directory on purge
+        rm -rf /etc/file_monitor
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

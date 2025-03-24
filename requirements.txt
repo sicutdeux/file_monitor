@@ -1,0 +1,7 @@
+python-dotenv==1.0.0
+watchdog==3.0.0
+python-telegram-bot==20.8
+colorama==0.4.6
+# Either remove this line completely if you plan to use Python's built-in difflib module
+# Or replace with an alternative package like:
+# unified-diff==0.5.1
