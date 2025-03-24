@@ -23,7 +23,7 @@ A utility that monitors files and directories for changes and sends notification
 
 2. Build the Debian package:
    ```bash
-   git clone https://github.com/yourusername/file-monitor.git
+   git clone https://github.com/sicutdeux/file_monitor.git
    cd file-monitor
    chmod +x build_deb.sh
    sudo ./build_deb.sh
@@ -45,7 +45,7 @@ A utility that monitors files and directories for changes and sends notification
 
 2. Install the package:
    ```bash
-   pip3 install git+https://github.com/yourusername/file-monitor.git
+   pip3 install git+https://github.com/sicutdeux/file_monitor.git
    ```
 
 ### Installing dependencies manually
@@ -119,7 +119,7 @@ file-monitor --config /path/to/your/config.conf
 ## Building from Source
 
 ```bash
-git clone https://github.com/yourusername/file-monitor.git
+git clone https://github.com/sicutdeux/file_monitor.git
 cd file-monitor
 
 # Install dependencies
@@ -132,7 +132,7 @@ python -m file_monitor.file_monitor
 ## Building the Debian Package Manually
 
 ```bash
-git clone https://github.com/yourusername/file-monitor.git
+git clone https://github.com/sicutdeux/file_monitor.git
 cd file-monitor
 
 # Make sure the scripts are executable
