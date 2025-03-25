@@ -68,6 +68,33 @@ cp debian/file_monitor.service "$PACKAGE_DIR/lib/systemd/system/"
 # Build the package
 dpkg-deb --build "$PACKAGE_DIR"
 
+# GitHub Release section
+if command -v gh &> /dev/null; then
+    echo "Publishing release to GitHub..."
+    
+    # Ensure we're authenticated with GitHub
+    if ! gh auth status &>/dev/null; then
+        echo "Not authenticated with GitHub. Please run 'gh auth login' first."
+        echo "Skipping GitHub release."
+    else
+        # Create a release tag
+        TAG="v$VERSION"
+        
+        # Create the release
+        echo "Creating GitHub release $TAG..."
+        gh release create "$TAG" \
+            --title "File Monitor $VERSION" \
+            --notes "Release $VERSION of File Monitor" \
+            "$PACKAGE_DIR.deb"
+        
+        echo "Release published successfully to GitHub"
+    fi
+else
+    echo "GitHub CLI (gh) not found. Skipping GitHub release."
+    echo "To install GitHub CLI: sudo apt install gh"
+    echo "Then authenticate with: gh auth login"
+fi
+
 # Clean up - remove build directory
 echo "Cleaning up build directory..."
 rm -rf "$PACKAGE_DIR"
