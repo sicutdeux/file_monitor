@@ -2,7 +2,7 @@
 set -e
 
 PACKAGE_NAME="file-monitor"
-VERSION="1.3.0"
+VERSION="1.4.1"
 PACKAGE_DIR="$PACKAGE_NAME-$VERSION"
 
 # Check for required build dependencies

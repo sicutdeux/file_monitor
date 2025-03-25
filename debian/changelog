@@ -1,5 +1,5 @@
-file-monitor (0.1.0) unstable; urgency=medium
+file-monitor (1.4.1) unstable; urgency=medium
 
-  * Initial release.
+  * Version 1.4.1 release.
 
- -- Your Name <your.email@example.com>  $(date -R)
+ -- Axzel Marin <axzel@axenxio.com>  Tue, 25 Mar 2025 10:01:11 -0500
